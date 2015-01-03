@@ -8,6 +8,7 @@
 #define BOOST_ITERATOR_FACADE_23022003THW_HPP
 
 #include <boost/config.hpp>
+#include <boost/iterator.hpp>
 #include <boost/iterator/interoperable.hpp>
 #include <boost/iterator/iterator_traits.hpp>
 #include <boost/iterator/iterator_categories.hpp>
@@ -36,9 +37,13 @@
 #include <boost/mpl/apply.hpp>
 #include <boost/mpl/identity.hpp>
 
-#include <cstddef>
-
 #include <boost/iterator/detail/config_def.hpp> // this goes last
+
+#ifdef BOOST_MSVC
+# pragma warning(push)
+# pragma warning(disable: 4172) // returning address of local variable or temporary
+# pragma warning(disable: 4702) // unreachable code
+#endif
 
 namespace boost {
 namespace iterators {
@@ -975,6 +980,10 @@ using iterators::iterator_core_access;
 using iterators::iterator_facade;
 
 } // namespace boost
+
+#ifdef BOOST_MSVC
+# pragma warning(pop)
+#endif
 
 #include <boost/iterator/detail/config_undef.hpp>
 
