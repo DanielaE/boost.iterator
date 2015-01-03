@@ -39,7 +39,7 @@ struct counter {
 
 using namespace std;
 
-int main(int argc, char * argv[])
+int main(int, char *[])
 {
     // test the iterator with function objects
     ones ones_generator;
@@ -92,7 +92,7 @@ int main(int argc, char * argv[])
 
     assert(generated.size() == 10);
     assert(counter_generator.n == 42 + 10);
-    for(std::size_t i = 0; i != 10; ++i)
+    for(int i = 0; i != 10; ++i)
         assert(generated[i] == 42 + i);
     cout << "function iterator test with stateful function object successful." << endl;
 
