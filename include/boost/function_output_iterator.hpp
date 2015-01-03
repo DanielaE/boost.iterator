@@ -38,6 +38,8 @@ namespace iterators {
         return *this;
       }
       UnaryFunction& m_f;
+    private:
+      output_proxy& operator=(const output_proxy&);
     };
     output_proxy operator*() { return output_proxy(m_f); }
     self& operator++() { return *this; }

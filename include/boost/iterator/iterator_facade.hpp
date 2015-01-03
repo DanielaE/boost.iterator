@@ -318,6 +318,7 @@ namespace iterators {
             // This function is needed for MWCW and BCC, which won't call
             // operator-> again automatically per 13.3.1.2 para 8
             operator Reference*() { return boost::addressof(m_ref); }
+            proxy& operator=(const proxy&);
             Reference m_ref;
         };
         typedef proxy result_type;
