@@ -845,6 +845,6 @@ int main( void )
             << "\nNumber of failed tests: " << static_cast<unsigned int>(num_failed_tests)
             << std::endl;
 
-  return num_failed_tests;
+  return static_cast<int>(num_failed_tests);
 }
 

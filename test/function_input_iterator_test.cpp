@@ -39,7 +39,7 @@ struct counter {
 
 using namespace std;
 
-int main(int argc, char * argv[])
+int main(int, char *[])
 {
     // test the iterator with function objects
     ones ones_generator;
