@@ -49,6 +49,8 @@ namespace iterators {
 template <class Iterator, class T>
 void trivial_iterator_test(const Iterator i, const Iterator j, T val)
 {
+  (void)j;
+  (void)val;
   Iterator k;
   assert(i == i);
   assert(j == j);
@@ -58,6 +60,7 @@ void trivial_iterator_test(const Iterator i, const Iterator j, T val)
 #else
   typename std::iterator_traits<Iterator>::value_type v = *i;
 #endif
+  (void)v;
   assert(v == val);
 #if 0
   // hmm, this will give a warning for transform_iterator...  perhaps
@@ -87,6 +90,8 @@ void mutable_trivial_iterator_test(const Iterator i, const Iterator j, T val)
 template <class Iterator, class T>
 void input_iterator_test(Iterator i, T v1, T v2)
 {
+  (void)v1;
+  (void)v2;
   Iterator i1(i);
 
   assert(i == i1);
@@ -236,6 +241,7 @@ void random_access_iterator_test(Iterator i, int N, TrueVals vals)
     assert(*i == vals[N - 1 - c]);
     assert(*i == boost::implicit_cast<value_type>(j[N - 1 - c]));
     Iterator q = k - c;
+    (void)q;	
     assert(*i == *q);
     assert(i > j);
     assert(i >= j);
@@ -249,6 +255,7 @@ void random_access_iterator_test(Iterator i, int N, TrueVals vals)
 template <class Iterator, class ConstIterator>
 void const_nonconst_iterator_test(Iterator i, ConstIterator j)
 {
+  (void)j;
   assert(i != j);
   assert(j != i);
 

@@ -317,7 +317,14 @@ namespace iterators {
       void advance(typename super_t::difference_type n)
       {
           BOOST_ITERATOR_ADAPTOR_ASSERT_TRAVERSAL(random_access_traversal_tag)
+          #if defined(_MSC_VER)
+           #pragma warning(push)
+           #pragma warning(disable: 4244) // narrowing conversion, possible loss of data
+          #endif
           m_iterator += n;
+          #if defined(_MSC_VER)
+           #pragma warning(pop)
+          #endif
       }
 
       void increment() { ++m_iterator; }

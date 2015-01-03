@@ -11,6 +11,11 @@
 #include <boost/iterator.hpp>
 #include <boost/iterator/iterator_adaptor.hpp>
 
+#ifdef BOOST_MSVC
+# pragma warning(push)
+# pragma warning(disable: 4172) // returning address of local variable or temporary
+#endif
+
 namespace boost {
 namespace iterators {
 
@@ -70,5 +75,9 @@ using iterators::reverse_iterator;
 using iterators::make_reverse_iterator;
 
 } // namespace boost
+
+#ifdef BOOST_MSVC
+# pragma warning(pop)
+#endif
 
 #endif // BOOST_REVERSE_ITERATOR_23022003THW_HPP

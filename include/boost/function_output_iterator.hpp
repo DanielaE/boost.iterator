@@ -38,6 +38,9 @@ namespace iterators {
         return *this;
       }
       UnaryFunction& m_f;
+#if BOOST_WORKAROUND(BOOST_MSVC, < 1900)
+      output_proxy& operator=(const output_proxy&);
+#endif
     };
     output_proxy operator*() { return output_proxy(m_f); }
     self& operator++() { return *this; }
