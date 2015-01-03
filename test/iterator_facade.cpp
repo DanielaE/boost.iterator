@@ -50,6 +50,7 @@ class counter_iterator
 struct proxy
 {
     proxy(int& x) : state(x) {}
+    proxy& operator=(const proxy &);
 
     operator int const&() const
     {
@@ -86,7 +87,7 @@ struct input_iter
         return value();
     }
 
-    bool equal(input_iter const& y) const
+    bool equal(input_iter const&) const
     {
         return false;
     }
@@ -104,6 +105,7 @@ struct wrapper
         typename boost::enable_if< boost::is_convertible<U,T> >::type* = 0)
         : m_x(other.m_x)
     { }
+    wrapper& operator=(const wrapper&);
 };
 
 struct iterator_with_proxy_reference
@@ -118,6 +120,7 @@ struct iterator_with_proxy_reference
     explicit iterator_with_proxy_reference(int& x)
         : m_x(x)
     { }
+    iterator_with_proxy_reference& operator=(const iterator_with_proxy_reference &);
 
     void increment()
     { }
