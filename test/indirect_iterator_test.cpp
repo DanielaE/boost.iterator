@@ -108,7 +108,7 @@ void more_indirect_iterator_tests()
     dci = de;
     BOOST_TEST(dci == de);
 
-    boost::random_access_iterator_test(db + 1, store.size() - 1, boost::next(store.begin()));
+    boost::random_access_iterator_test(db + 1, static_cast<int>(store.size()) - 1, boost::next(store.begin()));
     
     *db = 999;
     BOOST_TEST(store.front() == 999);

@@ -125,7 +125,7 @@ void category_test(
     
     // Note that this test requires a that the first argument is
     // dereferenceable /and/ a valid iterator prior to the first argument
-    boost::random_access_iterator_test(start, v.size(), v.begin());
+    boost::random_access_iterator_test(start, static_cast<int>(v.size()), v.begin());
 }
 
 // Special tests for bidirectional CountingIterators
@@ -249,7 +249,7 @@ public:
   my_int3() { }
   my_int3(int x) : m_int(x) { }
   my_int3& operator++() { ++m_int; return *this; }
-  my_int3& operator+=(std::ptrdiff_t n) { m_int += n; return *this; }
+  my_int3& operator+=(std::ptrdiff_t n) { m_int += static_cast<int>(n); return *this; }
   std::ptrdiff_t operator-(const my_int3& x) const { return m_int - x.m_int; }
   my_int3& operator--() { --m_int; return *this; }
   bool operator==(const my_int3& x) const { return m_int == x.m_int; }

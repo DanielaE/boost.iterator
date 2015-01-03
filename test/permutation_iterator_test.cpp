@@ -47,11 +47,11 @@ void permutation_test()
   BOOST_STATIC_ASSERT(index_size <= element_range_size);
   element_range_type elements( element_range_size );
   for( element_range_type::iterator el_it = elements.begin(); el_it != elements.end(); ++el_it )
-    { *el_it = std::distance(elements.begin(), el_it); }
+    { *el_it = static_cast<double>(std::distance(elements.begin(), el_it)); }
 
   index_type indices( index_size );
   for( index_type::iterator i_it = indices.begin(); i_it != indices.end(); ++i_it )
-    { *i_it = element_range_size - index_size + std::distance(indices.begin(), i_it); }
+    { *i_it = element_range_size - index_size + static_cast<int>(std::distance(indices.begin(), i_it)); }
   std::reverse( indices.begin(), indices.end() );
 
   typedef boost::permutation_iterator< element_range_type::iterator, index_type::iterator > permutation_type;
