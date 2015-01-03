@@ -52,6 +52,8 @@ namespace iterators {
 template <class Iterator, class T>
 void trivial_iterator_test(const Iterator i, const Iterator j, T val)
 {
+  (void)j;
+  (void)val;
   Iterator k;
   BOOST_TEST(i == i);
   BOOST_TEST(j == j);
@@ -92,6 +94,8 @@ void mutable_trivial_iterator_test(const Iterator i, const Iterator j, T val)
 template <class Iterator, class T>
 void input_iterator_test(Iterator i, T v1, T v2)
 {
+  (void)v1;
+  (void)v2;
   Iterator i1(i);
 
   BOOST_TEST(i == i1);
