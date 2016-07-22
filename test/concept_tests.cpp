@@ -3,6 +3,7 @@
 // accompanying file LICENSE_1_0.txt or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
 
+#include <boost/iterator.hpp>
 #include <boost/iterator/iterator_concepts.hpp>
 #include <boost/iterator/iterator_categories.hpp>
 #include <boost/operators.hpp>
