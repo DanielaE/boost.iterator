@@ -39,6 +39,11 @@
 
 #include <boost/iterator/detail/config_def.hpp> // this goes last
 
+#ifdef BOOST_MSVC
+# pragma warning(push)
+# pragma warning(disable: 4172) // returning address of local variable or temporary
+#endif
+
 namespace boost {
 namespace iterators {
 
@@ -975,6 +980,10 @@ using iterators::iterator_core_access;
 using iterators::iterator_facade;
 
 } // namespace boost
+
+#ifdef BOOST_MSVC
+# pragma warning(pop)
+#endif
 
 #include <boost/iterator/detail/config_undef.hpp>
 
