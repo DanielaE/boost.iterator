@@ -56,12 +56,6 @@ int main()
     STATIC_ASSERT_SAME(boost::pointee<X*>::type, X);
     STATIC_ASSERT_SAME(boost::pointee<X const*>::type, X const);
 
-    STATIC_ASSERT_SAME(boost::pointee<std::auto_ptr<int> >::type, int);
-    STATIC_ASSERT_SAME(boost::pointee<std::auto_ptr<X> >::type, X);
-    
-    STATIC_ASSERT_SAME(boost::pointee<std::auto_ptr<int const> >::type, int const);
-    STATIC_ASSERT_SAME(boost::pointee<std::auto_ptr<X const> >::type, X const);
-
     STATIC_ASSERT_SAME(boost::pointee<std::list<int>::iterator >::type, int);
     STATIC_ASSERT_SAME(boost::pointee<std::list<X>::iterator >::type, X);
     
